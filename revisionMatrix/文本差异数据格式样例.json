@@ -1,0 +1,37 @@
+[//最小可以以一句为分割，也可以以一个段落、一个章节为分割。
+ //若当前求出了以句为分割的匹配，则在句子尺度上只存在“完全相等”、“新增”和“删除”，不存在“修改”，但将尺度缩
+ //小到段落，则可以表示段落尺度上的“完全相等”、“新增”、“删除”和“修改”，段落“修改”的编辑距离暂且可以定义为
+ //段落中的句子的新增长度总和+删去长度总和
+    {
+        "OldVersionNumber" : 1,//做对比的版本号，不一定连续，版本数量过多，后续需要做等距采样对比的操作
+        "NewVersionNumber" : 2,
+        "MatchedPairs" : [
+            {
+                "OldSentenceNumber" : 1,
+                "NewSentenceNumber" : 1,    // Old不一定等于New，可能发生位置变化
+                "Size" : 1234               // 当OldSentenceNumber和NewSentenceNumber都不为-1时，存在匹配
+            },
+            {
+                "OldSentenceNumber" : -1,
+                "NewSentenceNumber" : 5,
+                "Size" : 2345               // 当OldSentenceNumber为-1时，表示新增了一句
+            },
+            {
+                "OldSentenceNumber" : 7,
+                "NewSentenceNumber" : -1,
+                "Size" : 3456               // 当NewSentenceNumber为-1时，表示删去了一句
+            }
+            ...
+        ]
+    },
+    {
+        "oldVersionNumber" : 2,
+        "newVersionNumber" : 3
+        ...
+    },
+    {
+        "oldVersionNumber" : 3,
+        "newVersionNumber" : 4
+        ...
+    }
+]

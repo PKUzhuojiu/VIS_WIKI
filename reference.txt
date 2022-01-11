@@ -1,0 +1,14 @@
+计算文本距离：
+A Technique for Isolating Differences Between Files 
+
+VASTChallenge中如何处理编辑者关系：
+http://visualdata.wustl.edu/varepository/VAST%20Challenge%202008/challenges/MC1%20-%20Wiki%20Editors/
+
+time curves样例代码：
+https://aviz.fr/~bbach/timecurves/
+
+
+time curves论文：https://sci-hubtw.hkvisa.net/10.1109/TVCG.2015.2467851
+history flow论文：https://sci-hubtw.hkvisa.net/10.1145/985692.985765
+revision matrix是否有相关工作，待查找
+dynamic graph论文：https://sci-hubtw.hkvisa.net/https://doi.org/10.1111/cgf.12791
