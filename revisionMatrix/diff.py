@@ -10,10 +10,10 @@ import json
 # 对相邻两个版本的html文本做句子匹配，默认以换行符划分，可修改divideStr调整划分策略
 # hashmax为hash函数的模数
 startid = 3891
-endid = 3897
+endid = 3895
 step = 1
 hashmax = 10000007
-divideStr = r"[\n|\r]"
+divideStr = r"[\n|\r| ]"
 
 
 
@@ -112,7 +112,7 @@ def getdiff(id, nextid):
         x = q.get()
         a = x[0]
         b = x[1]
-        if ((a > 1) & (b > 1)):
+        if ((a > 0) & (b > 0)):
             if ((Ohash[a-1] == Nhash[b-1])):
                 if ((Omatch[a-1] <= 0) & (Nmatch[b-1] <= 0)):
                     q.put([a-1,b-1])
