@@ -1,0 +1,19 @@
+[
+    {
+        "level" : h2/h3
+        "name" : "string"
+        "startVersionID" : 23
+        "endVersionID" : 34
+        "startLineID" : 123
+        "endLineID" : 234
+    },
+    {
+        "level" : h2/h3
+        "name" : "string"
+        "startVersionID" : 23
+        "endVersionID" : 34
+        "startLineID" : 123
+        "endLineID" : 234
+    },
+    .....
+]
