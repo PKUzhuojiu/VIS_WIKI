@@ -49,6 +49,8 @@ function draw_network(){
             // data: graph.categories 
             }
         ],
+        color:['#d73027', "#fc8d59", "#fee08b","#ffffbf", "#d9ef8b", "#91cf60",'#1a9850'],
+        backgroundColor:'#f5f7fa',
         animationDuration: 1500,
         animationEasingUpdate: 'quinticInOut',
         series: [
@@ -61,7 +63,7 @@ function draw_network(){
             categories: graph.categories,
             roam: true,
             zoom:0.8,
-            center:[100,100],
+            // center:[100,100],
             symbol:'circle',
             label: {
                 position: 'right',
@@ -85,7 +87,7 @@ function draw_network(){
                 // }
             },
             force:{
-                repulsion:200,
+                repulsion:100,
                 gravity:0.001,
                 edgeLength:50,
                 initLayout:'circular'
