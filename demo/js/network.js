@@ -5,7 +5,6 @@ function draw_network(){
     networkChart = echarts.init(chartDom);
     var myChart = networkChart;
     var option;
-    dataPath = '../data/points.json'
     myChart.showLoading();
     nGenerateDataFromRange().then(function(graph){
     // $.get(dataPath, function(data){

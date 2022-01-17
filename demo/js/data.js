@@ -16,18 +16,8 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
         maxSentence:maxSentence,
     }
 
-    function get_node(data, author, params){
-        var nodes = []
-        return nodes;
-    }
-
-    function get_edge(data, author, params){
-        return edges
-        
-    }
-
     var res = { nodes:nodes, edges:edges,categories:categories}
-    $.get('data/points.json', function(data){
+    $.get('data/newpoints.json', function(data){
         $.get('data/authors.json', function(author){
             //#region nodes
             var user_dict = {}
@@ -145,8 +135,22 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
             //#endregion categories
 
             //#region figure attributes
+            // 先统计edge和node的最大值
+            var maxCount = 0;
+            var maxRelation = 0;
+            res.nodes.forEach(node=>{
+                if (node.count > maxCount)
+                    maxCount = node.count;
+            })
+            res.edges.forEach(edge=>{
+                if (edge.relation > maxRelation)
+                    maxRelation = edge.relation;
+            })
+            var nodeCoef = maxCount / 30;
+            var edgeCoef = maxRelation / 8;
+
             res.nodes.forEach(node => {
-                node.symbolSize = node.count/10+5;
+                node.symbolSize = node.count/nodeCoef+5;
                 node.symbol = 'circle'
                 node.label = {'show': (node.symbolSize > 10)}
                 if (node.ratio < 1/3)
@@ -163,11 +167,29 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
                     node.category = 5
                 else
                     node.category = 6
+                node.tooltip = {
+                    formatter:(params, ticks, callback)=>{
+                        var result = '<div><span style="display:inline-block;margin-right:5px; margin-bottom:2px;border-radius:10px;width:9px;height:9px;background-color:'
+                                    +params.color +
+                                    '"></span>';
+                        result +=  params.name + "</div>"
+                        result += '编辑次数<b style="margin-left:10px">' + params.data.count
+                            + '</b><br\>编辑增删比<b style="margin-left:10px">' + params.data.ratio.toFixed(2)+"</b>";
+                        return result;
+                    }
+                }
             });
 
             res.edges.forEach(edge =>{
-                edge.lineStyle= {'width': 1 + edge.relation/3};
-                edge.symbolSize = 2+edge.relation;
+                edge.lineStyle= {'width': 1 + edge.relation/edgeCoef};
+                edge.symbolSize = 2+edge.relation/edgeCoef*3;
+                edge.tooltip = {
+                    formatter:(params, ticks, callback)=>{
+                        var result =  "<div>" + params.name + "</div>"
+                        result += '修改次数<b style="margin-left:15px">' + params.data.relation
+                        return result;
+                    }
+                }
             });
             //#endregion
             resolve(res);
