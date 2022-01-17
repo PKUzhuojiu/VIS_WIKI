@@ -1,0 +1,580 @@
+{
+    "nodes": [
+        {
+            "name": "1990'sguy",
+            "count": 12,
+            "ratio": 1.0,
+            "logratio": 0.0
+        },
+        {
+            "name": "Ainlina",
+            "count": 12,
+            "ratio": 1.0,
+            "logratio": 0.0
+        },
+        {
+            "name": "AleatoryPonderings",
+            "count": 917,
+            "ratio": 0.6404293381037567,
+            "logratio": -0.4456164867543989
+        },
+        {
+            "name": "Alexceltare2",
+            "count": 15,
+            "ratio": 1.1428571428571428,
+            "logratio": 0.13353139262452257
+        },
+        {
+            "name": "Alvin Seville",
+            "count": 203,
+            "ratio": 1.3604651162790697,
+            "logratio": 0.30782663854424835
+        },
+        {
+            "name": "Bdushaw",
+            "count": 38,
+            "ratio": 1.0,
+            "logratio": 0.0
+        },
+        {
+            "name": "Boneyard90",
+            "count": 17,
+            "ratio": 1.4285714285714286,
+            "logratio": 0.3566749439387324
+        },
+        {
+            "name": "Ceedub88",
+            "count": 12,
+            "ratio": 1.0,
+            "logratio": 0.0
+        },
+        {
+            "name": "Chaheel Riens",
+            "count": 60,
+            "ratio": 0.09090909090909091,
+            "logratio": -2.3978952727983707
+        },
+        {
+            "name": "Cilidus",
+            "count": 128,
+            "ratio": 2.0476190476190474,
+            "logratio": 0.7166776779701394
+        },
+        {
+            "name": "Citation bot",
+            "count": 14,
+            "ratio": 1.0,
+            "logratio": 0.0
+        },
+        {
+            "name": "Czello",
+            "count": 30,
+            "ratio": 0.875,
+            "logratio": -0.13353139262452263
+        },
+        {
+            "name": "Davemck",
+            "count": 12,
+            "ratio": 1.0,
+            "logratio": 0.0
+        },
+        {
+            "name": "Davey2116",
+            "count": 40,
+            "ratio": 4.714285714285714,
+            "logratio": 1.550597412411167
+        },
+        {
+            "name": "Davide King",
+            "count": 130,
+            "ratio": 0.1504424778761062,
+            "logratio": -1.8941744746561244
+        },
+        {
+            "name": "Dcfc1988",
+            "count": 12,
+            "ratio": 1.0,
+            "logratio": 0.0
+        },
+        {
+            "name": "DeathTrain",
+            "count": 23,
+            "ratio": 1.0909090909090908,
+            "logratio": 0.08701137698962969
+        },
+        {
+            "name": "Denniscabrams",
+            "count": 12,
+            "ratio": 1.0,
+            "logratio": 0.0
+        },
+        {
+            "name": "GoodDay",
+            "count": 176,
+            "ratio": 1.4109589041095891,
+            "logratio": 0.3442695470812447
+        },
+        {
+            "name": "Handoto",
+            "count": 87,
+            "ratio": 0.3181818181818182,
+            "logratio": -1.1451323043030026
+        },
+        {
+            "name": "Ivanvector",
+            "count": 155,
+            "ratio": 0.19230769230769232,
+            "logratio": -1.6486586255873816
+        },
+        {
+            "name": "JHunterJ",
+            "count": 114,
+            "ratio": 1.425531914893617,
+            "logratio": 0.35454501768090746
+        },
+        {
+            "name": "JJMC89 bot III",
+            "count": 14,
+            "ratio": 0.75,
+            "logratio": -0.2876820724517809
+        },
+        {
+            "name": "Jack Upland",
+            "count": 128,
+            "ratio": 2.282051282051282,
+            "logratio": 0.8250747236024933
+        },
+        {
+            "name": "Locomotive207",
+            "count": 174,
+            "ratio": 1.8064516129032258,
+            "logratio": 0.5913644862500029
+        },
+        {
+            "name": "Mandruss",
+            "count": 1305,
+            "ratio": 1.061611374407583,
+            "logratio": 0.05978791837897343
+        },
+        {
+            "name": "MelanieN",
+            "count": 331,
+            "ratio": 1.9292035398230087,
+            "logratio": 0.6571072440767484
+        },
+        {
+            "name": "MrCheese76",
+            "count": 13,
+            "ratio": 1.1666666666666667,
+            "logratio": 0.15415067982725836
+        },
+        {
+            "name": "NaBUru38",
+            "count": 191,
+            "ratio": 0.7207207207207207,
+            "logratio": -0.3275035666384526
+        },
+        {
+            "name": "Neutrality",
+            "count": 181,
+            "ratio": 0.4140625,
+            "logratio": -0.8817383503674954
+        },
+        {
+            "name": "Nick.mon",
+            "count": 286,
+            "ratio": 0.810126582278481,
+            "logratio": -0.21056476910734964
+        },
+        {
+            "name": "Onetwothreeip",
+            "count": 3228,
+            "ratio": 0.4475336322869955,
+            "logratio": -0.8040035881427005
+        },
+        {
+            "name": "Pennsylvania2",
+            "count": 15,
+            "ratio": 0.875,
+            "logratio": -0.13353139262452263
+        },
+        {
+            "name": "Politicsfan4",
+            "count": 540,
+            "ratio": 1.0454545454545454,
+            "logratio": 0.044451762570833796
+        },
+        {
+            "name": "Raphael.concorde",
+            "count": 12,
+            "ratio": 1.0,
+            "logratio": 0.0
+        },
+        {
+            "name": "Rosguill",
+            "count": 15,
+            "ratio": 1.5,
+            "logratio": 0.4054651081081644
+        },
+        {
+            "name": "SPECIFICO",
+            "count": 688,
+            "ratio": 0.9111111111111111,
+            "logratio": -0.09309042306601198
+        },
+        {
+            "name": "Sdkb",
+            "count": 12,
+            "ratio": 1.0,
+            "logratio": 0.0
+        },
+        {
+            "name": "Slatersteven",
+            "count": 17,
+            "ratio": 0.7,
+            "logratio": -0.35667494393873245
+        },
+        {
+            "name": "Songwaters",
+            "count": 108,
+            "ratio": 0.14893617021276595,
+            "logratio": -1.9042374526547454
+        },
+        {
+            "name": "Space4Time3Continuum2x",
+            "count": 566,
+            "ratio": 1.088560885608856,
+            "logratio": 0.08485653546011884
+        },
+        {
+            "name": "Starship.paint",
+            "count": 840,
+            "ratio": 1.3076923076923077,
+            "logratio": 0.26826398659467937
+        },
+        {
+            "name": "Thanoscar21",
+            "count": 32,
+            "ratio": 1.2857142857142858,
+            "logratio": 0.25131442828090617
+        },
+        {
+            "name": "TheSouthernIrishman",
+            "count": 192,
+            "ratio": 0.6271186440677966,
+            "logratio": -0.466619531261495
+        },
+        {
+            "name": "ValarianB",
+            "count": 62,
+            "ratio": 1.2142857142857142,
+            "logratio": 0.1941560144409574
+        },
+        {
+            "name": "WikiCleanerBot",
+            "count": 12,
+            "ratio": 1.0,
+            "logratio": 0.0
+        }
+    ],
+    "edges": [
+        {
+            "source": "Mandruss",
+            "target": "MelanieN",
+            "relation": 24
+        },
+        {
+            "source": "MelanieN",
+            "target": "Mandruss",
+            "relation": 1
+        },
+        {
+            "source": "MelanieN",
+            "target": "Davide King",
+            "relation": 1
+        },
+        {
+            "source": "Davide King",
+            "target": "Mandruss",
+            "relation": 12
+        },
+        {
+            "source": "Citation bot",
+            "target": "Onetwothreeip",
+            "relation": 2
+        },
+        {
+            "source": "Onetwothreeip",
+            "target": "AleatoryPonderings",
+            "relation": 18
+        },
+        {
+            "source": "Onetwothreeip",
+            "target": "Mandruss",
+            "relation": 5
+        },
+        {
+            "source": "NaBUru38",
+            "target": "AleatoryPonderings",
+            "relation": 75
+        },
+        {
+            "source": "Mandruss",
+            "target": "Onetwothreeip",
+            "relation": 18
+        },
+        {
+            "source": "Alvin Seville",
+            "target": "Politicsfan4",
+            "relation": 35
+        },
+        {
+            "source": "Politicsfan4",
+            "target": "Denniscabrams",
+            "relation": 1
+        },
+        {
+            "source": "AleatoryPonderings",
+            "target": "Space4Time3Continuum2x",
+            "relation": 12
+        },
+        {
+            "source": "Mandruss",
+            "target": "Space4Time3Continuum2x",
+            "relation": 1
+        },
+        {
+            "source": "Space4Time3Continuum2x",
+            "target": "Nick.mon",
+            "relation": 21
+        },
+        {
+            "source": "Nick.mon",
+            "target": "Mandruss",
+            "relation": 13
+        },
+        {
+            "source": "Space4Time3Continuum2x",
+            "target": "Mandruss",
+            "relation": 63
+        },
+        {
+            "source": "Boneyard90",
+            "target": "Politicsfan4",
+            "relation": 5
+        },
+        {
+            "source": "AleatoryPonderings",
+            "target": "Nick.mon",
+            "relation": 8
+        },
+        {
+            "source": "Nick.mon",
+            "target": "GoodDay",
+            "relation": 57
+        },
+        {
+            "source": "Locomotive207",
+            "target": "Mandruss",
+            "relation": 1
+        },
+        {
+            "source": "Jack Upland",
+            "target": "Starship.paint",
+            "relation": 50
+        },
+        {
+            "source": "Mandruss",
+            "target": "Locomotive207",
+            "relation": 4
+        },
+        {
+            "source": "Czello",
+            "target": "Onetwothreeip",
+            "relation": 1
+        },
+        {
+            "source": "AleatoryPonderings",
+            "target": "Onetwothreeip",
+            "relation": 8
+        },
+        {
+            "source": "Slatersteven",
+            "target": "Politicsfan4",
+            "relation": 2
+        },
+        {
+            "source": "Space4Time3Continuum2x",
+            "target": "Politicsfan4",
+            "relation": 8
+        },
+        {
+            "source": "Onetwothreeip",
+            "target": "Politicsfan4",
+            "relation": 11
+        },
+        {
+            "source": "Onetwothreeip",
+            "target": "Starship.paint",
+            "relation": 58
+        },
+        {
+            "source": "Starship.paint",
+            "target": "Politicsfan4",
+            "relation": 2
+        },
+        {
+            "source": "Politicsfan4",
+            "target": "SPECIFICO",
+            "relation": 3
+        },
+        {
+            "source": "Ceedub88",
+            "target": "Ainlina",
+            "relation": 1
+        },
+        {
+            "source": "Mandruss",
+            "target": "Starship.paint",
+            "relation": 8
+        },
+        {
+            "source": "Cilidus",
+            "target": "Onetwothreeip",
+            "relation": 21
+        },
+        {
+            "source": "Starship.paint",
+            "target": "Mandruss",
+            "relation": 2
+        },
+        {
+            "source": "Space4Time3Continuum2x",
+            "target": "Onetwothreeip",
+            "relation": 11
+        },
+        {
+            "source": "Politicsfan4",
+            "target": "Onetwothreeip",
+            "relation": 17
+        },
+        {
+            "source": "Starship.paint",
+            "target": "Onetwothreeip",
+            "relation": 1
+        },
+        {
+            "source": "Politicsfan4",
+            "target": "TheSouthernIrishman",
+            "relation": 45
+        },
+        {
+            "source": "GoodDay",
+            "target": "TheSouthernIrishman",
+            "relation": 23
+        },
+        {
+            "source": "Locomotive207",
+            "target": "TheSouthernIrishman",
+            "relation": 17
+        },
+        {
+            "source": "Onetwothreeip",
+            "target": "MrCheese76",
+            "relation": 1
+        },
+        {
+            "source": "TheSouthernIrishman",
+            "target": "SPECIFICO",
+            "relation": 44
+        },
+        {
+            "source": "SPECIFICO",
+            "target": "Onetwothreeip",
+            "relation": 159
+        },
+        {
+            "source": "Onetwothreeip",
+            "target": "SPECIFICO",
+            "relation": 212
+        },
+        {
+            "source": "MelanieN",
+            "target": "Onetwothreeip",
+            "relation": 135
+        },
+        {
+            "source": "Mandruss",
+            "target": "Neutrality",
+            "relation": 1
+        },
+        {
+            "source": "Davey2116",
+            "target": "JHunterJ",
+            "relation": 27
+        },
+        {
+            "source": "Starship.paint",
+            "target": "SPECIFICO",
+            "relation": 1
+        },
+        {
+            "source": "Mandruss",
+            "target": "SPECIFICO",
+            "relation": 1
+        },
+        {
+            "source": "Neutrality",
+            "target": "SPECIFICO",
+            "relation": 11
+        },
+        {
+            "source": "GoodDay",
+            "target": "Starship.paint",
+            "relation": 12
+        },
+        {
+            "source": "Starship.paint",
+            "target": "AleatoryPonderings",
+            "relation": 145
+        },
+        {
+            "source": "SPECIFICO",
+            "target": "Thanoscar21",
+            "relation": 1
+        },
+        {
+            "source": "Rosguill",
+            "target": "AleatoryPonderings",
+            "relation": 4
+        },
+        {
+            "source": "Dcfc1988",
+            "target": "Mandruss",
+            "relation": 1
+        }
+    ],
+    "categories": [
+        {
+            "name": "strong deleter"
+        },
+        {
+            "name": "deleter"
+        },
+        {
+            "name": "gentle deleter"
+        },
+        {
+            "name": "medium"
+        },
+        {
+            "name": "gentle adder"
+        },
+        {
+            "name": "adder"
+        },
+        {
+            "name": "strong adder"
+        }
+    ]
+}

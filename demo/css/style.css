@@ -1,0 +1,103 @@
+@font-face {
+    font-family: 'Khand-Regular';
+    src: url('./font/Khand-Regular.ttf');
+}
+@font-face {
+    font-family: 'KAITI';
+    src: url(./font/KAITI.ttf);
+}
+@font-face {
+    font-family: 'PingFangSC-Regular';
+    src: url(./font/PingFang-SC-Regular.ttf);
+}
+
+@media only screen and (min-width: 1080px) {
+    html {
+        font-size: 15px !important;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    html {
+        font-size: 25px !important;
+    }
+}
+
+
+
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    background: white;
+    display: grid;
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 70% 30%;
+    grid-template-areas: "left top""left bottom";
+}
+
+.text {
+    text-align: center;
+    font: Khand-Regular;
+    padding-top: 0.5rem;
+}
+
+#left_panel {
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    grid-area: left;
+}
+
+#top_panel {
+    width: 100%;
+    height: 100%;
+    /*background: #EBEBEB;*/
+    background: rgb(255, 255, 255);
+    grid-area: top;
+}
+
+#bottom_panel {
+    width: 100%;
+    height: 100%;
+    /*background: #EBEBEB;*/
+    background: rgb(255, 255, 255);
+    grid-area: bottom;
+    /* box-sizing: border-box; */
+    /* border: solid 1px grey; */
+}
+
+#tooltip{
+    position: absolute;           
+    text-align: center;
+    background-color: rgba(250, 250, 250, 1);
+    border: 1px solid rgb(200,200,200);
+    border-radius:5px;
+    font-size:0.8rem;
+    /* width: 10rem; */
+    padding:4px;
+    color:black;
+    z-index: 3;
+    visibility: hidden;
+    opacity: 0.8;
+}
+
+.hidden {
+    /*fill-opacity: 0.3;*/
+}
+
+.active {
+    /*opacity: 1;*/
+}

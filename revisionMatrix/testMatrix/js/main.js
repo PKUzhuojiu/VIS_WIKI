@@ -31,7 +31,7 @@ function draw_main() {
         .attr('transform', `translate(${padding.left+(width-padding.left-padding.right)/2}, ${padding.top*0.4})`)
         .append('text')
         .attr('class', 'title')
-        .text('A Visualization for Faculties That Research on Computer Science in Well-known Universities');
+        .text('Revision Matrix');
 
     // x axis - phd graduation year
     let x = d3.scaleLinear()
@@ -99,14 +99,14 @@ function draw_subdata(svg, subdata, x, y){
             return x(parseInt(d[x_attr]));
         })
         .attr('cy', (d, i) => y(parseInt(d[y_attr])))
-        .attr('r', 3)
+        .attr('r', 1)
         .attr('fill', (d, i) => {
             t = parseInt(d[3])
             console.log(t)
             if (t == 0) return '#6AF07A';
             else return '#FF474A';
         })
-        .attr('opacity', 0.05)
+        .attr('opacity', 0.7)
 }
 
 function main() {
