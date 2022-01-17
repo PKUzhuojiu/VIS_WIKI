@@ -17,7 +17,7 @@ d3.json(data_file).then(function (DATA) {
             datax.splice(-1, 0, point);
         };
     }
-    console.log(datax);
+    // console.log(datax);
 
     var dom = document.getElementById("left_panel");
     matrixChart = echarts.init(dom);
