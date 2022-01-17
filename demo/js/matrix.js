@@ -1,3 +1,4 @@
+// ! Deprecated
 let x_attr = 0;
 let y_attr = 2;
 

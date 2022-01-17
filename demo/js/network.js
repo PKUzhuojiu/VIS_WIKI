@@ -57,6 +57,8 @@ function draw_network(){
             links: graph.edges,
             categories: graph.categories,
             roam: true,
+            zoom:0.8,
+            center:[100,100],
             symbol:'circle',
             label: {
                 position: 'right',
