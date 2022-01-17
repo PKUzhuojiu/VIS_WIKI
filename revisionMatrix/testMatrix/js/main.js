@@ -106,7 +106,7 @@ function draw_subdata(svg, subdata, x, y){
             if (t == 0) return '#6AF07A';
             else return '#FF474A';
         })
-        .attr('opacity', 1)
+        .attr('opacity', 0.05)
 }
 
 function main() {

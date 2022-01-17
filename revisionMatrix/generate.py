@@ -13,7 +13,7 @@ startid = 3834
 endid = 3844
 step = 1
 hashmax = 10000007
-divideStr = r"[\n|\r|,|.]"
+divideStr = r"[\n|\r]"
 
 
 
@@ -26,35 +26,49 @@ with open("settings.json", "r") as f_set:
 
 
 
+def mysplit(mystr):
+    arr = []
+    i = 0
+    j = 0
+    l = len(mystr)
+    while ((i < l) & (j < l)):
+        if (mystr[j] == "\n"): 
+            arr.append(mystr[i:j])
+            i = j + 1
+        elif (mystr[j] == "\r"):
+            arr.append(mystr[i:j])
+            i = j + 1
+        j += 1
+    return arr
+
 def getdiff(id, nextid):
+    print("generate id : "+str(id))
     def getmap(num):
         oldFile = 'merge.txt'
         newFile = 'data/' + str(num) + '.txt'
         OFile = open(oldFile, encoding='utf-8').read()
         NFile = open(newFile, encoding='utf-8').read()
-        Ostr = re.split(divideStr, OFile)
-        Nstr = re.split(divideStr, NFile)
+        Ostr = mysplit(OFile)
+        Nstr = mysplit(NFile)
         Olines = len(Ostr)
         Nlines = len(Nstr)
         maxlines = max(Olines, Nlines) + 5
         # print("olines "+str(Olines))
 
-        def hashcode(str):
-            l = len(str)
+        def hashcode(hashstr):
+            l = len(hashstr)
             s = 0
             state = 0
             i = 0
             while (i < l):
-                if (state == 0):# 此段逻辑如下：将cite_note cite_ref等开头直到下一个</之间的信息忽略
-                                # 防止引用的编号大量改变引起的算法匹配失败
-                    if ((i + 7 < l) & (str[i:i+5] == "cite_")):
-                        state = 1
-                elif (state == 1):
-                    if (str[i:i+2] != "</"):
-                        while ((i < l-1) & (str[i:i+2] != "</")):
-                            i += 1
-                    state = 0
-                s = (s * 256 + ord(str[i])) % hashmax
+                while (hashstr[i] == "["):
+                    while (hashstr[i] != "]"):
+                        i += 1
+                        if (i >= l) :break
+                    i += 1
+                    if (i >= l) :break
+                if (i >= l) : break
+                s = (s * 256 + ord(hashstr[i])) % hashmax
                 i += 1
             return s
         
@@ -125,8 +139,9 @@ def getdiff(id, nextid):
             if (Nstr[i] == ""): continue
             # print("id is : "+str(i))
             if (Nmatch[i] == -1):
+                123
                 # if (i<20) :
-                print("whatsup : "+str(i)+" Str: "+Nstr[i])
+                # print("whatsup : "+str(i)+" Str: "+Nstr[i])
             else :arr[Nmatch[i]] = 1
         return arr
     
