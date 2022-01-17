@@ -2,15 +2,18 @@ draw_network()
 
 function draw_network(){
     var chartDom = document.getElementById('bottom_panel');
-    var myChart = echarts.init(chartDom);
+    networkChart = echarts.init(chartDom);
+    var myChart = networkChart;
     var option;
-    dataPath = '../data/relation_detail.json'
+    dataPath = '../data/points.json'
     myChart.showLoading();
-    $.get(dataPath, function(graph){
-        // console.log(graph);
+    nGenerateDataFromRange().then(function(graph){
+    // $.get(dataPath, function(data){
+        console.log(graph);
+        // graph = nGenerateDataFromRange();
         myChart.hideLoading();
         graph.nodes.forEach(node => {
-        node.symbolSize = node.count/100+5;
+        node.symbolSize = node.count/10+5;
         node.symbol = 'circle'
         node.label = {'show': (node.symbolSize > 10)}
         if (node.ratio < 1/3)
@@ -29,8 +32,8 @@ function draw_network(){
             node.category = 6
         });
         graph.edges.forEach(edge =>{
-        edge.lineStyle= {'width': 1 + edge.relation/40};
-        edge.symbolSize = 2+edge.relation/10;
+        edge.lineStyle= {'width': 1 + edge.relation/3};
+        edge.symbolSize = 2+edge.relation;
         });
         option = {
         title: {
@@ -91,6 +94,20 @@ function draw_network(){
         ]
         };
         myChart.setOption(option);
+        myChart.on('mouseover', {dataType:'node'}, function(){
+            matrixChart.dispatchAction({
+                type:'highlight',
+                seriesName:'matrix',
+                dataIndex: mFindVersionFromAuthor([])
+            })
+        })
+        myChart.on('mouseout', {dataType:'node'}, function(){
+            matrixChart.dispatchAction({
+                type:'downplay',
+                seriesName:'matrix',
+                dataIndex: mFindVersionFromAuthor([])
+            })
+        })
     });
     option && myChart.setOption(option);
 }
