@@ -66,7 +66,7 @@ function draw_network(){
                         repulsion:50,
                         gravity:0.005,
                         edgeLength:50,
-                        initLayout:'circular'
+                        initLayout:'none'
                     }
                 }
             ]

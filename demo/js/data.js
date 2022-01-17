@@ -85,8 +85,8 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
                         add_list[p[2]] = p[0]               
                     }
                     if (p[3] == 1 && add_list.hasOwnProperty(p[2])){
-                        source = author[add_list[p[2]]];
-                        target = author[p[0]];
+                        target = author[add_list[p[2]]];
+                        source = author[p[0]];
                         if (source == target)
                             return true;
                         
