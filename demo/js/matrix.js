@@ -31,7 +31,9 @@ function draw_matrix() {
     })
     let y_range = [this_struct["startLineID"],this_struct["endLineID"]]
     let x_range = [this_struct["endVersionID"],this_struct["startVersionID"]]
-    
+    x_range[0] = 5500
+    y_range[1] = 12000
+
     // x axis - phd graduation year
     let x = d3.scaleLinear()
         .domain(x_range)
