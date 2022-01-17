@@ -2,7 +2,8 @@ draw_network()
 
 function draw_network(){
     var chartDom = document.getElementById('bottom_panel');
-    var myChart = echarts.init(chartDom);
+    networkChart = echarts.init(chartDom);
+    var myChart = networkChart;
     var option;
     dataPath = '../data/relation_detail.json'
     myChart.showLoading();
@@ -91,6 +92,20 @@ function draw_network(){
         ]
         };
         myChart.setOption(option);
+        myChart.on('mouseover', {dataType:'node'}, function(){
+            matrixChart.dispatchAction({
+                type:'highlight',
+                seriesName:'matrix',
+                dataIndex: mFindVersionFromAuthor([])
+            })
+        })
+        myChart.on('mouseout', {dataType:'node'}, function(){
+            matrixChart.dispatchAction({
+                type:'downplay',
+                seriesName:'matrix',
+                dataIndex: mFindVersionFromAuthor([])
+            })
+        })
     });
     option && myChart.setOption(option);
 }

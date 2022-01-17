@@ -4,7 +4,7 @@ let datax = []
 let datay = []
 d3.json(data_file).then(function (DATA) {
     data = DATA;
-    console.log(data)
+    // console.log(data)
     for (var i = 0; i < data.length; i++ )
     {
         if (data[i] == []) {
@@ -13,14 +13,15 @@ d3.json(data_file).then(function (DATA) {
         for (var j = 0; j < data[i].length; j++) { 
             var point = []
             point.splice(0, 0, data[i][j][1], data[i][j][2], data[i][j][3], data[i][j][0]);
-            console.log(point);
+            // console.log(point);
             datax.splice(-1, 0, point);
         };
     }
-    //console.log(datax);
+    console.log(datax);
 
     var dom = document.getElementById("left_panel");
-    var myChart = echarts.init(dom);
+    matrixChart = echarts.init(dom);
+    var myChart = matrixChart;
     var app = {};
 
     var option;
@@ -43,7 +44,7 @@ d3.json(data_file).then(function (DATA) {
         yAxis: {},
         series: [
             {
-                symbolSize: 20,
+                name:'matrix',
                 data: datax,
                 type: 'scatter',
                 symbolSize: 10,
@@ -55,6 +56,13 @@ d3.json(data_file).then(function (DATA) {
                         return 'rect';
                     }
                     return dataItem[1] * 4;
+                },
+                emphasis:{
+                    focus:'self',
+                    itemStyle:{
+                        color:"#fac858",
+                        borderWidth:1
+                    }
                 }
             }
         ]
@@ -65,3 +73,8 @@ d3.json(data_file).then(function (DATA) {
     }
 });
 
+function mFindVersionFromAuthor(authorList){
+    // sample
+    console.log('find');
+    return [1001,1002,1003,1004,1005,1006,1007,1008];
+}
