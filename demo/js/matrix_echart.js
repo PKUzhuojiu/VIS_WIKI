@@ -116,7 +116,20 @@ d3.json(data_file).then(function (DATA) {
             // console.log(maxVersion);
             // console.log(minSentence);
             // console.log(maxSentence);
-            // nGenerateDataFromRange(minVersion, maxVersion, minSentence, maxSentence);
+            nGenerateDataFromRange(minVersion, maxVersion, minSentence, maxSentence).then(graph=>{
+                option = {
+                    
+                }
+                networkChart.setOption({
+                    series:[
+                        {
+                            data:graph.nodes,
+                            links:graph.edges
+                        }
+                    ]
+                })
+
+            });
         });
     }
 });

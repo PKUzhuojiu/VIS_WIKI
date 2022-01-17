@@ -29,7 +29,7 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
     var res = { nodes:nodes, edges:edges,categories:categories}
     $.get('data/points.json', function(data){
         $.get('data/authors.json', function(author){
-            //* nodes
+            //#region nodes
             var user_dict = {}
 
             // generate dict
@@ -71,14 +71,12 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
                 }
             }
             console.log(nodes);
+            //#endregion
 
-
+            //#region edges
             var add_list = {};
             var relation_detail = {'source':[], 'target':[], 'relation':[]};
             var users = [];
-
-            function find_pairs(source, target){
-            }
 
             // generation lists
             data.forEach(pairs => {
@@ -137,11 +135,41 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
                 })
             }
             console.log(edges);
+            //#endregion
 
+            //#region categories
             cat_list = ['strong deleter', 'deleter', 'gentle deleter','medium','gentle adder', 'adder', 'strong adder'];
             cat_list.forEach(element => {
                 categories.push({name:element})
             })
+            //#endregion categories
+
+            //#region figure attributes
+            res.nodes.forEach(node => {
+                node.symbolSize = node.count/10+5;
+                node.symbol = 'circle'
+                node.label = {'show': (node.symbolSize > 10)}
+                if (node.ratio < 1/3)
+                    node.category = 0
+                else if (node.ratio < 1/2)
+                    node.category = 1
+                else if (node.ratio < 0.8)
+                    node.category = 2
+                else if (node.ratio < 1.25)
+                    node.category = 3
+                else if (node.ratio < 2)
+                    node.category = 4
+                else if (node.ratio < 3)
+                    node.category = 5
+                else
+                    node.category = 6
+            });
+
+            res.edges.forEach(edge =>{
+                edge.lineStyle= {'width': 1 + edge.relation/3};
+                edge.symbolSize = 2+edge.relation;
+            });
+            //#endregion
             resolve(res);
         })
     }) ;
