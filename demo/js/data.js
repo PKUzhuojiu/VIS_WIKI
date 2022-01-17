@@ -16,20 +16,10 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
         maxSentence:maxSentence,
     }
 
-    function get_node(data, author, params){
-        var nodes = []
-        return nodes;
-    }
-
-    function get_edge(data, author, params){
-        return edges
-        
-    }
-
     var res = { nodes:nodes, edges:edges,categories:categories}
-    $.get('data/points.json', function(data){
+    $.get('data/newpoints.json', function(data){
         $.get('data/authors.json', function(author){
-            //* nodes
+            //#region nodes
             var user_dict = {}
 
             // generate dict
@@ -71,14 +61,12 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
                 }
             }
             console.log(nodes);
+            //#endregion
 
-
+            //#region edges
             var add_list = {};
             var relation_detail = {'source':[], 'target':[], 'relation':[]};
             var users = [];
-
-            function find_pairs(source, target){
-            }
 
             // generation lists
             data.forEach(pairs => {
@@ -97,8 +85,8 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
                         add_list[p[2]] = p[0]               
                     }
                     if (p[3] == 1 && add_list.hasOwnProperty(p[2])){
-                        source = author[add_list[p[2]]];
-                        target = author[p[0]];
+                        target = author[add_list[p[2]]];
+                        source = author[p[0]];
                         if (source == target)
                             return true;
                         
@@ -137,11 +125,73 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
                 })
             }
             console.log(edges);
+            //#endregion
 
+            //#region categories
             cat_list = ['strong deleter', 'deleter', 'gentle deleter','medium','gentle adder', 'adder', 'strong adder'];
             cat_list.forEach(element => {
                 categories.push({name:element})
             })
+            //#endregion categories
+
+            //#region figure attributes
+            // 先统计edge和node的最大值
+            var maxCount = 0;
+            var maxRelation = 0;
+            res.nodes.forEach(node=>{
+                if (node.count > maxCount)
+                    maxCount = node.count;
+            })
+            res.edges.forEach(edge=>{
+                if (edge.relation > maxRelation)
+                    maxRelation = edge.relation;
+            })
+            var nodeCoef = maxCount / 30;
+            var edgeCoef = maxRelation / 8;
+
+            res.nodes.forEach(node => {
+                node.symbolSize = node.count/nodeCoef+5;
+                node.symbol = 'circle'
+                node.label = {'show': (node.symbolSize > 10)}
+                if (node.ratio < 1/3)
+                    node.category = 0
+                else if (node.ratio < 1/2)
+                    node.category = 1
+                else if (node.ratio < 0.8)
+                    node.category = 2
+                else if (node.ratio < 1.25)
+                    node.category = 3
+                else if (node.ratio < 2)
+                    node.category = 4
+                else if (node.ratio < 3)
+                    node.category = 5
+                else
+                    node.category = 6
+                node.tooltip = {
+                    formatter:(params, ticks, callback)=>{
+                        var result = '<div><span style="display:inline-block;margin-right:5px; margin-bottom:2px;border-radius:10px;width:9px;height:9px;background-color:'
+                                    +params.color +
+                                    '"></span>';
+                        result +=  params.name + "</div>"
+                        result += '编辑次数<b style="margin-left:10px">' + params.data.count
+                            + '</b><br\>编辑增删比<b style="margin-left:10px">' + params.data.ratio.toFixed(2)+"</b>";
+                        return result;
+                    }
+                }
+            });
+
+            res.edges.forEach(edge =>{
+                edge.lineStyle= {'width': 1 + edge.relation/edgeCoef};
+                edge.symbolSize = 2+edge.relation/edgeCoef*3;
+                edge.tooltip = {
+                    formatter:(params, ticks, callback)=>{
+                        var result =  "<div>" + params.name + "</div>"
+                        result += '修改次数<b style="margin-left:15px">' + params.data.relation
+                        return result;
+                    }
+                }
+            });
+            //#endregion
             resolve(res);
         })
     }) ;
