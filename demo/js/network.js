@@ -2,15 +2,18 @@ draw_network()
 
 function draw_network(){
     var chartDom = document.getElementById('bottom_panel');
-    var myChart = echarts.init(chartDom);
+    networkChart = echarts.init(chartDom);
+    var myChart = networkChart;
     var option;
-    dataPath = '../data/relation_detail.json'
+    dataPath = '../data/points.json'
     myChart.showLoading();
-    $.get(dataPath, function(graph){
-        // console.log(graph);
+    nGenerateDataFromRange().then(function(graph){
+    // $.get(dataPath, function(data){
+        console.log(graph);
+        // graph = nGenerateDataFromRange();
         myChart.hideLoading();
         graph.nodes.forEach(node => {
-        node.symbolSize = node.count/100+5;
+        node.symbolSize = node.count/10+5;
         node.symbol = 'circle'
         node.label = {'show': (node.symbolSize > 10)}
         if (node.ratio < 1/3)
@@ -29,8 +32,8 @@ function draw_network(){
             node.category = 6
         });
         graph.edges.forEach(edge =>{
-        edge.lineStyle= {'width': 1 + edge.relation/40};
-        edge.symbolSize = 2+edge.relation/10;
+        edge.lineStyle= {'width': 1 + edge.relation/3};
+        edge.symbolSize = 2+edge.relation;
         });
         option = {
         title: {
@@ -46,6 +49,8 @@ function draw_network(){
             // data: graph.categories 
             }
         ],
+        color:['#d73027', "#fc8d59", "#fee08b","#ffffbf", "#d9ef8b", "#91cf60",'#1a9850'],
+        backgroundColor:'#f5f7fa',
         animationDuration: 1500,
         animationEasingUpdate: 'quinticInOut',
         series: [
@@ -58,7 +63,7 @@ function draw_network(){
             categories: graph.categories,
             roam: true,
             zoom:0.8,
-            center:[100,100],
+            // center:[100,100],
             symbol:'circle',
             label: {
                 position: 'right',
@@ -82,7 +87,7 @@ function draw_network(){
                 // }
             },
             force:{
-                repulsion:200,
+                repulsion:100,
                 gravity:0.001,
                 edgeLength:50,
                 initLayout:'circular'
@@ -91,6 +96,20 @@ function draw_network(){
         ]
         };
         myChart.setOption(option);
+        myChart.on('mouseover', {dataType:'node'}, function(){
+            matrixChart.dispatchAction({
+                type:'highlight',
+                seriesName:'matrix',
+                dataIndex: mFindVersionFromAuthor([])
+            })
+        })
+        myChart.on('mouseout', {dataType:'node'}, function(){
+            matrixChart.dispatchAction({
+                type:'downplay',
+                seriesName:'matrix',
+                dataIndex: mFindVersionFromAuthor([])
+            })
+        })
     });
     option && myChart.setOption(option);
 }

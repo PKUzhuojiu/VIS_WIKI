@@ -19,7 +19,8 @@ d3.json(data_file).then(function (DATA) {
     }
 
     var dom = document.getElementById("left_panel");
-    var myChart = echarts.init(dom);
+    matrixChart = echarts.init(dom);
+    var myChart = matrixChart;
     var app = {};
 
     var COLOR_ALL = [
@@ -63,7 +64,7 @@ d3.json(data_file).then(function (DATA) {
         },
         series: [
             {
-                symbolSize: 20,
+                name:'matrix',
                 data: datax,
                 type: 'scatter',
                 symbolSize: 5,
@@ -120,3 +121,8 @@ d3.json(data_file).then(function (DATA) {
     }
 });
 
+function mFindVersionFromAuthor(authorList){
+    // sample
+    console.log('find');
+    return [1001,1002,1003,1004,1005,1006,1007,1008];
+}
