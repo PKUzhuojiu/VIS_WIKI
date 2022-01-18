@@ -48,7 +48,7 @@ function draw_network(){
                     labelLayout:{
                         hideOverlap:true
                     },
-                    edgeSymbol: ['none', 'arrow'],
+                    edgeSymbol: ['none', 'none'],
                     lineStyle: {
                         color: 'source',
                         curveness: 0.2,

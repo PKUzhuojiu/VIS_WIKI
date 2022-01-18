@@ -1,5 +1,5 @@
 let data = null;
-let data_file = "../data/points_3834_5500_processed.json";
+let data_file = "../data/points_3834_5500_all_processed.json";
 let datax = []
 let datay = []
 d3.json(data_file).then(function (DATA) {
@@ -12,8 +12,10 @@ d3.json(data_file).then(function (DATA) {
         for (var j = 0; j < data[i].length; j++) { 
             var point = []
             point.push(data[i][j][1])
-            point.push(data[i][j][2])
-            point.push(data[i][j][3])
+            point.push(data[i][j][4])
+            point.push(data[i][j][5])
+            point.push(data[i][j][0])
+            point.push(data[i][j][6])
             datax.push(point)
         };
     }
@@ -33,9 +35,9 @@ d3.json(data_file).then(function (DATA) {
         tooltip: {
                 trigger: 'item',
                 formatter: function (datas) {
-                    var res = '编辑者: ' + datas.data[0]+ '<br/>';
+                    var res = '编辑者: ' + datas.data[4]+ '<br/>';
                     res += '编辑时间:  ' + datas.data[0] + '<br/>'
-                    res += '版本号:  ' + datas.data[0] + '<br/>'
+                    res += '版本号:  ' + datas.data[3] + '<br/>'
                     return res
                 },
                 axisPointer: {
@@ -207,11 +209,14 @@ d3.json(data_file).then(function (DATA) {
                 for (var i = 0; i < dataIndices.length; i++) {
                     times++;
                     var dataIndex = dataIndices[i];
-                    if (minVersion > datax[dataIndex][0]){
-                        minVersion = datax[dataIndex][0];
-                        // startDate = 
+                    if (minVersion > datax[dataIndex][3]){
+                        minVersion = datax[dataIndex][3];
+                        startDate = datax[dataIndex][0]
                     }
-                    if (maxVersion < datax[dataIndex][0]) maxVersion = datax[dataIndex][0];
+                    if (maxVersion < datax[dataIndex][3]){
+                        maxVersion = datax[dataIndex][3];
+                        endDate = datax[dataIndex][0]
+                    } 
                     if (minSentence > datax[dataIndex][1]) minSentence = datax[dataIndex][1];
                     if (maxSentence < datax[dataIndex][1]) maxSentence = datax[dataIndex][1];
                 }
@@ -220,17 +225,23 @@ d3.json(data_file).then(function (DATA) {
                 var getlength = datax.length;
                 for (var i = 0; i < getlength; i++) {
                     times++;
-                    if (minVersion > datax[i][0]) minVersion = datax[i][0];
-                    if (maxVersion < datax[i][0]) maxVersion = datax[i][0];
+                    if (minVersion > datax[i][3]){
+                        minVersion = datax[i][3];
+                        startDate = datax[i][0]
+                    }
+                    if (maxVersion < datax[i][3]){
+                        maxVersion = datax[i][3];
+                        endDate = datax[i][0]
+                    } 
                     if (minSentence > datax[i][1]) minSentence = datax[i][1];
                     if (maxSentence < datax[i][1]) maxSentence = datax[i][1];
                 }
             }
-            // console.log("brush res");
-            // console.log(minVersion);
-            // console.log(maxVersion);
-            // console.log(minSentence);
-            // console.log(maxSentence);
+            console.log("brush res");
+            console.log(minVersion);
+            console.log(maxVersion);
+            console.log(minSentence);
+            console.log(maxSentence);
             update_and_renew(startDate, endDate, undefined, String(times));
             nGenerateDataFromRange(minVersion, maxVersion, minSentence, maxSentence).then(graph=>{
                 option = {
