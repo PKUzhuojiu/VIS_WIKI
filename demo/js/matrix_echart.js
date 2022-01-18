@@ -55,13 +55,29 @@ d3.json(data_file).then(function (DATA) {
                 hideOverlap: true
             },
         },
+        // yAxis: {
+        //     type: "value",
+        //     scale: true,
+        //     // axisLabel: {
+        //     //     formatter: '{yyyy}-{MM}-{dd}' ,
+        //     //     hideOverlap: true
+        //     // },
+        // },
         yAxis: {
-            type: "value",
-            scale: true,
-            // axisLabel: {
-            //     formatter: '{yyyy}-{MM}-{dd}' ,
-            //     hideOverlap: true
-            // },
+            "show" : false,
+            // data: [1000,3000,7000,7050,8000],
+            axisLabel:{
+                formatter: function (value) {
+                    var texts = [];
+                    if(value==1000){
+                    texts.push('woo');
+                    }
+                    else{
+                    texts.push('2');
+                    }
+                    return texts;
+                }
+            }
         },
         brush: {
             // removeOnClick = true,
@@ -94,6 +110,59 @@ d3.json(data_file).then(function (DATA) {
                         else return '#6AF07A';
                     },
                     opacity: 0.5
+                },
+                markLine: {
+                    symbol: ['none', 'none'],//去掉箭头
+                    silent: true,
+                    itemStyle: {
+                        normal: {
+                            lineStyle: {
+                                // type: 'solid',
+                                color:'black'
+                            }
+                        },
+                        label: {
+                            show: true,
+                            formatter:'123'
+                        }
+                    },
+                    data: [{
+                            name: '-20%',
+                            yAxis: 3979
+                    },
+                    {
+                            name: '-10%',
+                            yAxis: 3468
+                    },
+                    {
+                            name: '0%',
+                            yAxis: 3010
+                    },
+                    {
+                            name: '10%',
+                            yAxis: 2596
+                    },
+                    {
+                            name: '20%',
+                            yAxis: 2218
+                    },
+                    {
+                            name: '30%',
+                            yAxis: 1871
+                    },
+                    {
+                            name: '40%',
+                            yAxis: 1549
+                    },
+                    {
+                            name: '50%',
+                            yAxis: 1249
+                    },
+                    {
+                            name: '60%',
+                            yAxis: 0969
+                    },
+                    ]
                 }
             }
         ]
