@@ -40,7 +40,7 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
                     // sentence filter
                     if (p[4] < params.minSentence || p[4] > params.maxSentence)
                         return true;
-                    if (p[5] == 0){
+                    if (p[5] == 1){
                         user_dict[author[p[0]]].deletes++;
                     }
                     else{
@@ -81,10 +81,10 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
                     if (p[4] < params.minSentence || p[4] > params.maxSentence)
                         return true;
 
-                    if (p[5] == 1){
+                    if (p[5] == 0){
                         add_list[p[4]] = p[0]               
                     }
-                    if (p[5] == 0 && add_list.hasOwnProperty(p[4])){
+                    if (p[5] == 1 && add_list.hasOwnProperty(p[4])){
                         target = author[add_list[p[4]]];
                         source = author[p[0]];
                         if (source == target)
@@ -146,11 +146,11 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
                 if (edge.relation > maxRelation)
                     maxRelation = edge.relation;
             })
-            var nodeCoef = maxCount / 30;
-            var edgeCoef = maxRelation / 8;
+            var nodeCoef = Math.log(maxCount) / 20;
+            var edgeCoef = Math.log(maxRelation) / 8;
 
             res.nodes.forEach(node => {
-                node.symbolSize = node.count/nodeCoef+5;
+                node.symbolSize = Math.log(node.count)/nodeCoef+5;
                 node.symbol = 'circle'
                 node.label = {'show': (node.symbolSize > 10)}
                 if (node.ratio < 1/3)
@@ -181,8 +181,8 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
             });
 
             res.edges.forEach(edge =>{
-                edge.lineStyle= {'width': 1 + edge.relation/edgeCoef};
-                edge.symbolSize = 2+edge.relation/edgeCoef*3;
+                var linew = Math.log(edge.relation)/edgeCoef
+                edge.lineStyle= {'width': 1 + linew};
                 edge.tooltip = {
                     formatter:(params, ticks, callback)=>{
                         var result =  "<div>" + params.name + "</div>"

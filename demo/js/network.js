@@ -38,8 +38,8 @@ function draw_network(){
                     links: graph.edges,
                     categories: graph.categories,
                     roam: true,
-                    zoom:0.8,
-                    center:[400,400],
+                    zoom:0.15,
+                    // center:[400,400],
                     symbol:'circle',
                     label: {
                         position: 'right',
@@ -63,7 +63,7 @@ function draw_network(){
                         // }
                     },
                     force:{
-                        repulsion:50,
+                        repulsion:80,
                         gravity:0.005,
                         edgeLength:50,
                         initLayout:'circular'
