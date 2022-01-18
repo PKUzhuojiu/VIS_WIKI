@@ -39,7 +39,7 @@ function draw_network(){
                     categories: graph.categories,
                     roam: true,
                     zoom:0.8,
-                    // center:[100,100],
+                    center:[400,400],
                     symbol:'circle',
                     label: {
                         position: 'right',
@@ -66,7 +66,7 @@ function draw_network(){
                         repulsion:50,
                         gravity:0.005,
                         edgeLength:50,
-                        initLayout:'none'
+                        initLayout:'circular'
                     },
                     selectedMode:'multiple',
                     select:{
