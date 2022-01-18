@@ -1,5 +1,5 @@
 let data = null;
-let data_file = "../data/newpoints_all_processed.json";
+let data_file = "../data/newpoints_less_all_processed.json";
 
 let datax = []
 let datay = []

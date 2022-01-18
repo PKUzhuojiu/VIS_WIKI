@@ -17,7 +17,7 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
     }
 
     var res = { nodes:nodes, edges:edges,categories:categories}
-    $.get('data/newpoints_all_processed.json', function(data){
+    $.get('data/newpoints_less_all_processed.json', function(data){
         $.get('data/authors.json', function(author){
             //#region nodes
             var user_dict = {}
