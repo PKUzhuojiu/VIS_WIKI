@@ -1,5 +1,5 @@
 let data = null;
-let data_file = "../data/points.json";
+let data_file = "../data/points_3834_5500_processed.json";
 let datax = []
 let datay = []
 d3.json(data_file).then(function (DATA) {
@@ -27,14 +27,6 @@ d3.json(data_file).then(function (DATA) {
         '#FF474A',
         '#6AF07A'
       ];
-      var pieces = [];
-      for (var i = 0; i < 2; i++) {
-        pieces.push({
-          value: i,
-          label: 'cluster ' + i,
-          color: COLOR_ALL[i]
-        });
-      }
 
     var option;
     option = {
@@ -50,13 +42,25 @@ d3.json(data_file).then(function (DATA) {
             }
         ],
         xAxis: {
-            type: "value",
-            scale: true
+            type: "time",
+            scale: true,
+            axisLabel: {
+                formatter: '{yyyy}-{MM}-{dd} {hh}:{mm}' ,
+                hideOverlap: true
+            },
         },
-        yAxis: {},
+        yAxis: {
+            type: "value",
+            scale: true,
+            // axisLabel: {
+            //     formatter: '{yyyy}-{MM}-{dd}' ,
+            //     hideOverlap: true
+            // },
+        },
         brush: {
             // removeOnClick = true,
-            throttleType: 'debounce',
+            // throttleType: 'debounce',
+            // throttleDelay: Numeric = 10000,
             brushLink: 'all',
             inBrush: {
                 // opacity: 1
@@ -67,6 +71,7 @@ d3.json(data_file).then(function (DATA) {
                 name:'matrix',
                 data: datax,
                 type: 'scatter',
+                // large: true,
                 symbolSize: 5,
                 symbol: 'circle',
                 itemStyle: {
@@ -74,7 +79,7 @@ d3.json(data_file).then(function (DATA) {
                         if (d.data[2] == 1) return '#FF474A';
                         else return '#6AF07A';
                     },
-                    opacity: 0.3
+                    opacity: 0.5
                 }
             }
         ]
