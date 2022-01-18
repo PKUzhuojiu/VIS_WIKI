@@ -26,21 +26,34 @@ while True:
     #print(time)
     dict[line_list[0]]=time
 
+#读取作者词典
+fi1 = open('authors.json','r',encoding='utf-8')
+au_dict = json.load(fi1)
+fi1.close()
+
+# [旧版本号，对应时间，新版本号，对应时间，纵坐标，增删标记，作者]
 data_file = 'points_3834_5500.json' #数据文件名
-fi1 = open(data_file,'r',encoding='utf-8')
-data = json.load(fi1)
+fi2 = open(data_file,'r',encoding='utf-8')
+data = json.load(fi2)
 i = 0
 j = 0
 for i in range(len(data)):
     if data[i]==[]:
         continue
     for j in range(len(data[i])):
-        data[i][j][0] = dict[str(data[i][j][0])]
-        data[i][j][1] = dict[str(data[i][j][1])]
+        new_point = []
+        new_point.append(data[i][j][0])
+        new_point.append(dict[str(data[i][j][0])])
+        new_point.append(data[i][j][1])
+        new_point.append(dict[str(data[i][j][1])])
+        new_point.append(data[i][j][2])
+        new_point.append(data[i][j][3])
+        new_point.append(au_dict[str(data[i][j][1])])
+        data[i][j] = new_point
 
-fi2 = open(data_file[0:-5]+'_processed.json','w',encoding='utf-8')
-fi2.write(json.dumps(data,indent=4))
-fi2.close()
+fi3 = open(data_file[0:-5]+'_all_processed.json','w',encoding='utf-8')
+fi3.write(json.dumps(data,indent=4))
+fi3.close()
 
 
 
