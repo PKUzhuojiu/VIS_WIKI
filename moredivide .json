@@ -1,0 +1,63 @@
+[
+    
+    {
+        "name":"Intro and Contents",
+        "startLineID":1,
+        "endLineID":1164
+    },
+    {
+        "name":"Personal life",
+        "startLineID":1165,
+        "endLineID":1513
+    },
+    {
+        "name":"Business career",
+        "startLineID":1514,
+        "endLineID":1700
+    },
+    {
+        "name":"Media career",
+        "startLineID":1701,
+        "endLineID":1856
+    },
+    {
+        "name":"Political career",
+        "startLineID":1857,
+        "endLineID":2042
+    },
+    {
+        "name":"Presidency (2017–2021)",
+        "startLineID":2043,
+        "endLineID":3561
+    },
+    {
+        "name":"Post-presidency",
+        "startLineID":3562,
+        "endLineID":3696
+    },
+    {
+        "name":"Public profile",
+        "startLineID":3697,
+        "endLineID":4504
+    },
+    {
+        "name":"Notes",
+        "startLineID":4505,
+        "endLineID":4527
+    },
+    {
+        "name":"References",
+        "startLineID":4528,
+        "endLineID":9402
+    },
+    {
+        "name":"Works cited",
+        "startLineID":9403,
+        "endLineID":9428
+    },
+    {
+        "name":"External links and others",
+        "startLineID":9429,
+        "endLineID":10819
+    }
+]
