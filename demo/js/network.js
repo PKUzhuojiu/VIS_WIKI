@@ -25,7 +25,7 @@ function draw_network(){
                 // data: graph.categories 
                 }
             ],
-            color:['#f5222d', "#fa541c", "#fa8c16","#fadb14", "#d9ef8b", "#7cb305",'#389e0d'],
+            color:['#f5222d', "#fa541c", "#fa8c16","#fadb14", "#aeea00", "#7cb305",'#389e0d'],
             // backgroundColor:'#f5f7fa',
             animationDuration: 1500,
             animationEasingUpdate: 'quinticInOut',

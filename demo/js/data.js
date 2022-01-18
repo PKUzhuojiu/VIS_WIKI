@@ -146,20 +146,20 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
                 if (edge.relation > maxRelation)
                     maxRelation = edge.relation;
             })
-            var nodeCoef = Math.log(maxCount) / 20;
-            var edgeCoef = Math.log(maxRelation) / 8;
+            var nodeCoef = Math.sqrt(maxCount) / 20;
+            var edgeCoef = Math.sqrt(maxRelation) / 8;
 
             res.nodes.forEach(node => {
-                node.symbolSize = Math.log(node.count)/nodeCoef+5;
+                node.symbolSize = Math.sqrt(node.count)/nodeCoef+5;
                 node.symbol = 'circle'
                 node.label = {'show': (node.symbolSize > 10)}
                 if (node.ratio < 1/3)
                     node.category = 0
                 else if (node.ratio < 1/2)
                     node.category = 1
-                else if (node.ratio < 0.8)
+                else if (node.ratio < 0.9)
                     node.category = 2
-                else if (node.ratio < 1.25)
+                else if (node.ratio < 1.1)
                     node.category = 3
                 else if (node.ratio < 2)
                     node.category = 4
@@ -181,7 +181,7 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
             });
 
             res.edges.forEach(edge =>{
-                var linew = Math.log(edge.relation)/edgeCoef
+                var linew = Math.sqrt(edge.relation)/edgeCoef
                 edge.lineStyle= {'width': 1 + linew};
                 edge.tooltip = {
                     formatter:(params, ticks, callback)=>{
