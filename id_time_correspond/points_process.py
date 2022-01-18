@@ -48,7 +48,7 @@ for i in range(len(data)):
         new_point.append(dict[str(data[i][j][1])])
         new_point.append(data[i][j][2])
         new_point.append(data[i][j][3])
-        new_point.append(au_dict[str(data[i][j][1])])
+        new_point.append(au_dict[str(data[i][j][0])])
         data[i][j] = new_point
 
 fi3 = open(data_file[0:-5]+'_all_processed.json','w',encoding='utf-8')

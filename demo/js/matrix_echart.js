@@ -124,7 +124,7 @@ d3.json(data_file).then(function (DATA) {
                 },
                 itemStyle: {
                     color: function (d) {
-                        if (d.data[2] == 1) return '#FF474A';
+                        if (d.data[2] == 0) return '#FF474A';
                         else return '#6AF07A';
                     },
                     opacity: 0.5
