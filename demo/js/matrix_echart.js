@@ -193,9 +193,35 @@ d3.json(data_file).then(function (DATA) {
 
     if (option && typeof option === 'object') {
         myChart.setOption(option);
-        myChart.on('datazoom', function(params){
-            
-        })
+        // myChart.on('datazoom', function(params){
+        //     var option = myChart.getOption();
+        //     console.log(option.dataZoom[0].start, option.dataZoom[0].end);
+        //     var getlen = datax.length;
+        //     range_list = []
+        //     var id1 = -1;
+        //     var id2 = -1;
+        //     var mxline = 0;
+        //     for (var i = 0; i < getlen; i++) {
+        //         if (datax[i][1] > mxline) mxline = datax[i][1];
+        //         var t1 = ((100 * i) + 50) / getlen;
+        //         var t2 = ((100 * i) - 50) / getlen;
+        //         if ((t1 > option.dataZoom[0].start) && (t2 < option.dataZoom[0].end)){
+        //             range_list.push(i);
+        //             if (id1 == -1) id1 = i;
+        //             id2 = i;
+        //         }
+        //     }
+        //     console.log(range_list)
+        //     matrixChart.dispatchAction({
+        //         type:'brush',
+        //         areas: [
+        //           {
+        //             brushType: 'rect',
+        //             coordRange: [[datax[id1][0], datax[id2][0]], [0, mxline]]
+        //           }
+        //         ]
+        //     })
+        // })
         myChart.on('brushSelected', function (params) {
             var brushComponent = params.batch[0];
         
