@@ -139,55 +139,232 @@ d3.json(data_file).then(function (DATA) {
                     silent: true,
                     itemStyle: {
                         normal: {
-                            lineStyle: {
-                                // type: 'solid',
-                                color:'black'
-                            }
-                        },
-                        label: {
-                            show: true,
-                            formatter:'123'
+                            
                         }
                     },
-                    data: [{
-                            name: '-20%',
-                            yAxis: 3979
-                    },
-                    {
-                            name: '-10%',
-                            yAxis: 3468
-                    },
-                    {
-                            name: '0%',
-                            yAxis: 3010
-                    },
-                    {
-                            name: '10%',
-                            yAxis: 2596
-                    },
-                    {
-                            name: '20%',
-                            yAxis: 2218
-                    },
-                    {
-                            name: '30%',
-                            yAxis: 1871
-                    },
-                    {
-                            name: '40%',
-                            yAxis: 1549
-                    },
-                    {
-                            name: '50%',
-                            yAxis: 1249
-                    },
-                    {
-                            name: '60%',
-                            yAxis: 0969
-                    },
-                    ]
+                    data: [
+                        {
+                            name: 'Intro and Contents',
+                            //value:'Intro and Contents',
+                            
+                            yAxis: 831,             //鼠标悬停事件  true没有，false有
+                            lineStyle: {
+                                
+                                type: 'solid',
+                                color:'gray'
+                            },
+                            label:{
+                                show:false,
+                                fontSize:'10',
+                                position:'start',
+                                formatter:"Intro and\n Contents",
+                            },
+                          },
+                          {
+                            name: 'Personal life',
+                           // value: 'Personal life',
+                            yAxis: 1162,             //鼠标悬停事件  true没有，false有
+                            lineStyle: {
+                                
+                                type: 'solid',
+                                color:'gray'
+                            },
+                            label:{show:false,fontSize:'10',
+                                position:'start',
+                                formatter:"Personal life",
+                            },
+                          },
+                          {
+                            name: 'Business career',
+                            //value: 'Business career',
+                            yAxis: 1387,             //鼠标悬停事件  true没有，false有
+                            lineStyle: {
+                                
+                                type: 'solid',
+                                color:'gray'
+                            },
+                            label:{show:false,fontSize:'10',
+                                position:'start',
+                                formatter:"Business career",
+                            },
+                          },
+                          {
+                            name: 'Media career',
+                            value: 'Media career',
+                            yAxis: 1473,             //鼠标悬停事件  true没有，false有
+                            lineStyle: {
+                                
+                                type: 'solid',
+                                color:'gray'
+                            },
+                            label:{show:false,fontSize:'10',
+                                position:'start',
+                                formatter:"Media career",
+                            },
+                          },
+                          {
+                            name: 'Pre-presidential political career',
+                            value: 'Pre-presidential political career',
+                            yAxis: 1654,             //鼠标悬停事件  true没有，false有
+                            lineStyle: {
+                                
+                                type: 'solid',
+                                color:'gray'
+                            },
+                            label:{show:false,fontSize:'10',
+                                position:'start',
+                                formatter:"Pre-presidential\n political career",
+                            },
+                          },
+                          {
+                            name: 'Presidency (2017-2021)',
+                            value: 'Presidency (2017-2021)',
+                            yAxis: 3088,             //鼠标悬停事件  true没有，false有
+                            lineStyle: {
+                                
+                                type: 'solid',
+                                color:'gray'
+                            },
+                            label:{show:false,fontSize:'10',
+                                position:'start',
+                                formatter:"Post-presidency\n (2017-2021)",
+                            },
+                          },
+                          {
+                            name: 'Post-presidency',
+                            value: 'Post-presidency',
+                            yAxis: 3223,             //鼠标悬停事件  true没有，false有
+                            lineStyle: {
+                                
+                                type: 'solid',
+                                color:'gray'
+                            },
+                            label:{show:false,fontSize:'10',
+                                position:'start',
+                                formatter:"Post-presidency",
+                            },
+                          },
+                          {
+                            name: 'Public profile',
+                            value:'Public profile',
+                            yAxis: 3867 ,
+                            silent:false,             //鼠标悬停事件  true没有，false有
+                            lineStyle: {
+                                type: 'solid',
+                                color:'gray'
+                            },
+                            label:{show:false,fontSize:'10',
+                                position:'start',
+                                formatter:"Public profile",
+                            },
+                           
+                          },
+                          
+                        {
+                          name: 'Intro and Contents',
+                          //value:'Intro and Contents',
+                          
+                          yAxis: 415,             //鼠标悬停事件  true没有，false有
+                          lineStyle: {
+                           color:'white'
+                        },
+                          label:{
+                              fontSize:'10',
+                              position:'start',
+                              formatter:"Intro and\n Contents",
+                          },
+                        },
+                        {
+                          name: 'Personal life',
+                         // value: 'Personal life',
+                          yAxis: 997,             //鼠标悬停事件  true没有，false有
+                          lineStyle: {
+                            color:'white'
+                         },
+                          label:{fontSize:'10',
+                              position:'start',
+                              formatter:"Personal life",
+                          },
+                        },
+                        {
+                          name: 'Business career',
+                          //value: 'Business career',
+                          yAxis: 1273,             //鼠标悬停事件  true没有，false有
+                          lineStyle: {
+                            color:'white'
+                         },
+                          label:{fontSize:'10',
+                              position:'start',
+                              formatter:"Business career",
+                          },
+                        },
+                        {
+                          name: 'Media career',
+                          value: 'Media career',
+                          yAxis: 1431,             //鼠标悬停事件  true没有，false有
+                          lineStyle: {
+                            color:'white'
+                         },
+                          label:{fontSize:'10',
+                              position:'start',
+                              formatter:"Media career",
+                          },
+                        },
+                        {
+                          name: 'Pre-presidential political career',
+                          value: 'Pre-presidential political career',
+                          yAxis: 1564,             //鼠标悬停事件  true没有，false有
+                          lineStyle: {
+                            color:'white'
+                         },
+                          label:{fontSize:'10',
+                              position:'start',
+                              formatter:"Pre-presidential\n political career",
+                          },
+                        },
+                        {
+                          name: 'Presidency (2017-2021)',
+                          value: 'Presidency (2017-2021)',
+                          yAxis: 2372,             //鼠标悬停事件  true没有，false有
+                          lineStyle: {
+                            color:'white'
+                         },
+                          label:{fontSize:'10',
+                              position:'start',
+                              formatter:"Presidency\n (2017-2021)",
+                          },
+                        },
+                        {
+                          name: 'Post-presidency',
+                          value: 'Post-presidency',
+                          yAxis: 3156,             //鼠标悬停事件  true没有，false有
+                          lineStyle: {
+                            color:'white'
+                         },
+                          label:{fontSize:'10',
+                              position:'start',
+                              formatter:"Post-presidency",
+                          },
+                        },
+                        {
+                          name: 'Public profile',
+                          value:'Public profile',
+                          yAxis: 3546 ,
+                          silent:false,             //鼠标悬停事件  true没有，false有
+                          lineStyle: {
+                            color:'white'
+                         },
+                          label:{fontSize:'10',
+                              position:'start',
+                              formatter:"Public profile",
+                          },
+                         
+                        },
+                        
+                      ]
                 }
             }
+            
         ]
     };
 
