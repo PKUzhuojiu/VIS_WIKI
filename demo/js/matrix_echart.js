@@ -206,6 +206,8 @@ d3.json(data_file).then(function (DATA) {
             var startDate = "";
             var endDate = "";
             var times = 0;
+            var editors = 0;
+            var editors_list = [];
         
             for (var sIdx = 0; sIdx < brushComponent.selected.length; sIdx++) {
                 // 对于每个 series：
@@ -214,6 +216,11 @@ d3.json(data_file).then(function (DATA) {
                 for (var i = 0; i < dataIndices.length; i++) {
                     times++;
                     var dataIndex = dataIndices[i];
+                    var this_editor = datax[dataIndex][4];
+                    if (editors_list.indexOf(this_editor) == -1){
+                        editors_list.push(this_editor);
+                        editors++;
+                    }
                     if (minVersion > datax[dataIndex][3]){
                         minVersion = datax[dataIndex][3];
                         endDate = datax[dataIndex][0]
@@ -230,24 +237,29 @@ d3.json(data_file).then(function (DATA) {
                 var getlength = datax.length;
                 for (var i = 0; i < getlength; i++) {
                     times++;
+                    var this_editor = datax[i][4];
+                    if (editors_list.indexOf(this_editor) == -1){
+                        editors_list.push(this_editor);
+                        editors++;
+                    }
                     if (minVersion > datax[i][3]){
                         minVersion = datax[i][3];
-                        startDate = datax[i][0]
+                        endDate = datax[i][0]
                     }
                     if (maxVersion < datax[i][3]){
                         maxVersion = datax[i][3];
-                        endDate = datax[i][0]
+                        startDate = datax[i][0]
                     } 
                     if (minSentence > datax[i][1]) minSentence = datax[i][1];
                     if (maxSentence < datax[i][1]) maxSentence = datax[i][1];
                 }
             }
-            console.log("brush res");
-            console.log(minVersion);
-            console.log(maxVersion);
-            console.log(minSentence);
-            console.log(maxSentence);
-            update_and_renew(startDate, endDate, undefined, String(times));
+            // console.log("brush res");
+            // console.log(minVersion);
+            // console.log(maxVersion);
+            // console.log(minSentence);
+            // console.log(maxSentence);
+            update_and_renew(startDate, endDate, editors, String(times));
             nGenerateDataFromRange(minVersion, maxVersion, minSentence, maxSentence).then(graph=>{
                 networkChart.setOption({
                     series:[
