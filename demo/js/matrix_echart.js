@@ -31,7 +31,13 @@ d3.json(data_file).then(function (DATA) {
     var option;
     option = {
         tooltip: {
-            position: 'top'
+                trigger: 'item',
+                formatter: function (datas) {
+                    var res = '编辑者: ' + datas.data[0]+ '<br/>';
+                    res += '编辑时间:  ' + datas.data[0] + '<br/>'
+                    res += '版本号:  ' + datas.data[0] + '<br/>'
+                    return res
+               }
         },
         dataZoom: [
             {
@@ -94,22 +100,30 @@ d3.json(data_file).then(function (DATA) {
             var maxVersion = -1e8;
             var minSentence = 1e8;
             var maxSentence = -1e8;
+            var startDate = "";
+            var endDate = "";
+            var times = 0;
         
             for (var sIdx = 0; sIdx < brushComponent.selected.length; sIdx++) {
                 // 对于每个 series：
                 var dataIndices = brushComponent.selected[sIdx].dataIndex;
         
                 for (var i = 0; i < dataIndices.length; i++) {
+                    times++;
                     var dataIndex = dataIndices[i];
-                    if (minVersion > datax[dataIndex][0]) minVersion = datax[dataIndex][0];
+                    if (minVersion > datax[dataIndex][0]){
+                        minVersion = datax[dataIndex][0];
+                        // startDate = 
+                    }
                     if (maxVersion < datax[dataIndex][0]) maxVersion = datax[dataIndex][0];
                     if (minSentence > datax[dataIndex][1]) minSentence = datax[dataIndex][1];
                     if (maxSentence < datax[dataIndex][1]) maxSentence = datax[dataIndex][1];
                 }
             }
-            if (minVersion == 1e8){
+            if (times == 0){
                 var getlength = datax.length;
                 for (var i = 0; i < getlength; i++) {
+                    times++;
                     if (minVersion > datax[i][0]) minVersion = datax[i][0];
                     if (maxVersion < datax[i][0]) maxVersion = datax[i][0];
                     if (minSentence > datax[i][1]) minSentence = datax[i][1];
@@ -121,6 +135,7 @@ d3.json(data_file).then(function (DATA) {
             // console.log(maxVersion);
             // console.log(minSentence);
             // console.log(maxSentence);
+            update_and_renew(startDate, endDate, undefined, String(times));
             nGenerateDataFromRange(minVersion, maxVersion, minSentence, maxSentence).then(graph=>{
                 option = {
                     
