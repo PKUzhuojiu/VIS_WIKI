@@ -37,14 +37,24 @@ d3.json(data_file).then(function (DATA) {
                     res += '编辑时间:  ' + datas.data[0] + '<br/>'
                     res += '版本号:  ' + datas.data[0] + '<br/>'
                     return res
-               }
+                },
+                axisPointer: {
+                    show: true,
+                    type: 'cross',
+                    lineStyle: {
+                        type: 'dashed',
+                        width: 1
+                    }
+                }
         },
         dataZoom: [
             {
                 type: 'inside'
             },
             {
-                type: 'slider'
+                type: 'slider',
+                showDataShadow:false,
+                filterMode:'empty'
             }
         ],
         xAxis: {
@@ -64,7 +74,7 @@ d3.json(data_file).then(function (DATA) {
             // },
         },
         brush: {
-            // removeOnClick = true,
+            removeOnClick :true,
             // throttleType: 'debounce',
             // throttleDelay: Numeric = 10000,
             brushLink: 'all',
@@ -82,11 +92,15 @@ d3.json(data_file).then(function (DATA) {
                 symbol: 'circle',
                 emphasis:{
                     itemStyle:{
-                        color:"#f8e71c",
-                        shadowColor: 'rgba(0, 0, 0, 1)',
-                        shadowBlur: 20
+                        // color:"#f1c40f",
+                        shadowColor: 'rgba(0, 0, 0, 0.8)',
+                        // shadowBlur: 10,
+                        // borderColor:"#f1c40f",
+                        borderWidth:3,
+                        opacity:1
                     },
-                    focus:'item'
+                    focus:'item',
+                    blurScope:'global'
                 },
                 itemStyle: {
                     color: function (d) {
@@ -94,6 +108,11 @@ d3.json(data_file).then(function (DATA) {
                         else return '#6AF07A';
                     },
                     opacity: 0.5
+                },
+                blur:{
+                    itemStyle:{
+                        color:'rgb(0,0,0,0.3)'
+                    }
                 }
             }
         ]
@@ -163,8 +182,14 @@ d3.json(data_file).then(function (DATA) {
 });
 
 function mFindVersionFromAuthor(authorList){
+    return new Promise((resolve, reject)=>{
+        mFindVersionFromAuthorAsync(authorList, data=>{resolve(data)})
+    })
+}
+
+function mFindVersionFromAuthorAsync(authorList, resolve){
     // sample
-    console.log('find');
+    // console.log('find');
     focus_list = []
     var getlength = datax.length;
     for (var i = 0; i < getlength; i++) {
@@ -173,5 +198,5 @@ function mFindVersionFromAuthor(authorList){
             focus_list.push(i)
         }
     }
-    return focus_list;//[1001,1002,1003,1004,1005,1006,1007,1008];
+    resolve(focus_list);//[1001,1002,1003,1004,1005,1006,1007,1008];
 }

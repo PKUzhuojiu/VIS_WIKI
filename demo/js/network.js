@@ -72,18 +72,23 @@ function draw_network(){
             ]
         };
         myChart.setOption(option);
-        myChart.on('mouseover', {dataType:'node'}, function(){
-            matrixChart.dispatchAction({
-                type:'highlight',
-                seriesName:'matrix',
-                dataIndex: mFindVersionFromAuthor([])
+        myChart.on('mouseover', {dataType:'node'}, function(params){
+            mFindVersionFromAuthor([params.name]).then(data =>{
+                console.log(data);
+                matrixChart.dispatchAction({
+                    type:'highlight',
+                    seriesName:'matrix',
+                    dataIndex: data
+                })
             })
         })
-        myChart.on('mouseout', {dataType:'node'}, function(){
-            matrixChart.dispatchAction({
-                type:'downplay',
-                seriesName:'matrix',
-                dataIndex: mFindVersionFromAuthor([])
+        myChart.on('mouseout', {dataType:'node'}, function(params){
+            mFindVersionFromAuthor([params.name]).then(data =>{
+                matrixChart.dispatchAction({
+                    type:'downplay',
+                    seriesName:'matrix',
+                    dataIndex: data
+                })
             })
         })
     });
