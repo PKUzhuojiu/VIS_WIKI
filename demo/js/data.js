@@ -17,7 +17,7 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
     }
 
     var res = { nodes:nodes, edges:edges,categories:categories}
-    $.get('data/newpoints.json', function(data){
+    $.get('data/newpoints_all_processed.json', function(data){
         $.get('data/authors.json', function(author){
             //#region nodes
             var user_dict = {}
@@ -38,9 +38,9 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
                 
                 pairs.forEach(p => {
                     // sentence filter
-                    if (p[2] < params.minSentence || p[2] > params.maxSentence)
+                    if (p[4] < params.minSentence || p[4] > params.maxSentence)
                         return true;
-                    if (p[3]){
+                    if (p[5]){
                         user_dict[author[p[0]]].deletes++;
                     }
                     else{
@@ -78,14 +78,14 @@ function nGenerateDataFromRangeAsync(minVersion=0, maxVersion=5000,
 
                 pairs.forEach(p => {
                     // sentence filter
-                    if (p[2] < params.minSentence || p[2] > params.maxSentence)
+                    if (p[4] < params.minSentence || p[4] > params.maxSentence)
                         return true;
 
-                    if (p[3] == 0){
-                        add_list[p[2]] = p[0]               
+                    if (p[5] == 0){
+                        add_list[p[4]] = p[0]               
                     }
-                    if (p[3] == 1 && add_list.hasOwnProperty(p[2])){
-                        target = author[add_list[p[2]]];
+                    if (p[5] == 1 && add_list.hasOwnProperty(p[4])){
+                        target = author[add_list[p[4]]];
                         source = author[p[0]];
                         if (source == target)
                             return true;

@@ -67,31 +67,58 @@ function draw_network(){
                         gravity:0.005,
                         edgeLength:50,
                         initLayout:'none'
+                    },
+                    selectedMode:'multiple',
+                    select:{
+                        itemStyle:{
+                            borderColor:"#000000",
+                            borderWidth:1,
+                            shadowBlur:3,
+                            shadowColor:"rgba(0, 0, 0, 0.5)",
+                            shadowOffsetX:1,
+                            shadowOffsetY:1,
+                        },
+                        label:{
+                            show:true
+                        }
                     }
                 }
             ]
         };
         myChart.setOption(option);
-        myChart.on('mouseover', {dataType:'node'}, function(params){
-            mFindVersionFromAuthor([params.name]).then(data =>{
-                console.log([params.name]);
-                console.log(data);
-                matrixChart.dispatchAction({
-                    type:'highlight',
-                    seriesName:'matrix',
-                    dataIndex: data
+
+        var selectedAuthor = []
+        myChart.on('selectchanged', {dataType:'node'}, function(params){
+            var data = myChart.getOption().series[0].data;
+            if (params.fromAction == 'unselect'){
+                mFindVersionFromAuthor(selectedAuthor).then(data =>{
+                    matrixChart.dispatchAction({
+                        type:'downplay',
+                        seriesName:'matrix',
+                        dataIndex: data
+                    })
                 })
-            })
-        })
-        myChart.on('mouseout', {dataType:'node'}, function(params){
-            mFindVersionFromAuthor([params.name]).then(data =>{
-                matrixChart.dispatchAction({
-                    type:'downplay',
-                    seriesName:'matrix',
-                    dataIndex: data
+            }
+
+            selectedAuthor = []
+            params.selected.forEach(e => {
+                if (e.dataType == "node")
+                    e.dataIndex.forEach(idx =>{
+                        selectedAuthor.push(data[idx].name);
+                    })
+            });
+            if (selectedAuthor.length > 0)
+                mFindVersionFromAuthor(selectedAuthor).then(data =>{
+                    // console.log([params.name]);
+                    // console.log(data);
+                    matrixChart.dispatchAction({
+                        type:'highlight',
+                        seriesName:'matrix',
+                        dataIndex: data
+                    })
                 })
-            })
         })
+
     });
     option && myChart.setOption(option);
 }

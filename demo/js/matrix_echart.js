@@ -1,5 +1,6 @@
 let data = null;
-let data_file = "../data/points_3834_5500_all_processed.json";
+let data_file = "../data/newpoints_all_processed.json";
+
 let datax = []
 let datay = []
 d3.json(data_file).then(function (DATA) {
