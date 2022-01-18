@@ -80,6 +80,14 @@ d3.json(data_file).then(function (DATA) {
                 // large: true,
                 symbolSize: 5,
                 symbol: 'circle',
+                emphasis:{
+                    itemStyle:{
+                        color:"#f8e71c",
+                        shadowColor: 'rgba(0, 0, 0, 1)',
+                        shadowBlur: 20
+                    },
+                    focus:'item'
+                },
                 itemStyle: {
                     color: function (d) {
                         if (d.data[2] == 1) return '#FF474A';
