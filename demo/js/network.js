@@ -74,6 +74,7 @@ function draw_network(){
         myChart.setOption(option);
         myChart.on('mouseover', {dataType:'node'}, function(params){
             mFindVersionFromAuthor([params.name]).then(data =>{
+                console.log([params.name]);
                 console.log(data);
                 matrixChart.dispatchAction({
                     type:'highlight',

@@ -54,6 +54,7 @@ d3.json(data_file).then(function (DATA) {
                 type: 'inside'
             },
             {
+                show: false,
                 type: 'slider',
                 showDataShadow:false,
                 filterMode:'empty'
@@ -191,6 +192,9 @@ d3.json(data_file).then(function (DATA) {
 
     if (option && typeof option === 'object') {
         myChart.setOption(option);
+        myChart.on('datazoom', function(params){
+            
+        })
         myChart.on('brushSelected', function (params) {
             var brushComponent = params.batch[0];
         
@@ -211,11 +215,11 @@ d3.json(data_file).then(function (DATA) {
                     var dataIndex = dataIndices[i];
                     if (minVersion > datax[dataIndex][3]){
                         minVersion = datax[dataIndex][3];
-                        startDate = datax[dataIndex][0]
+                        endDate = datax[dataIndex][0]
                     }
                     if (maxVersion < datax[dataIndex][3]){
                         maxVersion = datax[dataIndex][3];
-                        endDate = datax[dataIndex][0]
+                        startDate = datax[dataIndex][0]
                     } 
                     if (minSentence > datax[dataIndex][1]) minSentence = datax[dataIndex][1];
                     if (maxSentence < datax[dataIndex][1]) maxSentence = datax[dataIndex][1];
@@ -273,7 +277,8 @@ function mFindVersionFromAuthorAsync(authorList, resolve){
     focus_list = []
     var getlength = datax.length;
     for (var i = 0; i < getlength; i++) {
-        if (authorList.indexOf(datax[i][6]) > -1){
+        if (authorList.indexOf(datax[i][4]) > -1){
+            console.log("find it")
             // should highlight
             focus_list.push(i)
         }
