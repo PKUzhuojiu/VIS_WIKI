@@ -157,5 +157,13 @@ d3.json(data_file).then(function (DATA) {
 function mFindVersionFromAuthor(authorList){
     // sample
     console.log('find');
-    return [1001,1002,1003,1004,1005,1006,1007,1008];
+    focus_list = []
+    var getlength = datax.length;
+    for (var i = 0; i < getlength; i++) {
+        if (authorList.indexOf(datax[i][6]) > -1){
+            // should highlight
+            focus_list.push(i)
+        }
+    }
+    return focus_list;//[1001,1002,1003,1004,1005,1006,1007,1008];
 }
