@@ -157,7 +157,7 @@ d3.json(data_file).then(function (DATA) {
                                 show:false,
                                 fontSize:'10',
                                 position:'start',
-                                formatter:"Intro and Contents",
+                                formatter:"Intro and\n Contents",
                             },
                           },
                           {
@@ -213,7 +213,7 @@ d3.json(data_file).then(function (DATA) {
                             },
                             label:{show:false,fontSize:'10',
                                 position:'start',
-                                formatter:"Pre-presidential political career",
+                                formatter:"Pre-presidential\n political career",
                             },
                           },
                           {
@@ -227,7 +227,7 @@ d3.json(data_file).then(function (DATA) {
                             },
                             label:{show:false,fontSize:'10',
                                 position:'start',
-                                formatter:"Post-presidency (2017-2021)",
+                                formatter:"Post-presidency\n (2017-2021)",
                             },
                           },
                           {
@@ -271,7 +271,7 @@ d3.json(data_file).then(function (DATA) {
                           label:{
                               fontSize:'10',
                               position:'start',
-                              formatter:"Intro and Contents",
+                              formatter:"Intro and\n Contents",
                           },
                         },
                         {
@@ -289,7 +289,7 @@ d3.json(data_file).then(function (DATA) {
                         {
                           name: 'Business career',
                           //value: 'Business career',
-                          yAxis: 1175,             //鼠标悬停事件  true没有，false有
+                          yAxis: 1273,             //鼠标悬停事件  true没有，false有
                           lineStyle: {
                             color:'white'
                          },
@@ -319,7 +319,7 @@ d3.json(data_file).then(function (DATA) {
                          },
                           label:{fontSize:'10',
                               position:'start',
-                              formatter:"Pre-presidential political career",
+                              formatter:"Pre-presidential\n political career",
                           },
                         },
                         {
@@ -331,7 +331,7 @@ d3.json(data_file).then(function (DATA) {
                          },
                           label:{fontSize:'10',
                               position:'start',
-                              formatter:"Post-presidency (2017-2021)",
+                              formatter:"Presidency\n (2017-2021)",
                           },
                         },
                         {
