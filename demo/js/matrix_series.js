@@ -1,9 +1,12 @@
 let data = null;
 let data_file = "../data/points_3834_5500_processed.json";
-let datax = []
-let datay = []
-d3.json(data_file).then(function (DATA) {
-    data = DATA;
+let datax = {adds:[], deletes:[]}
+
+var dom = document.getElementById("left_panel");
+matrixChart = echarts.init(dom);
+var myChart = matrixChart;
+
+$.get(data_file, function(data){
     for (var i = 0; i < data.length; i++ )
     {
         if (data[i] == []) {
@@ -11,27 +14,18 @@ d3.json(data_file).then(function (DATA) {
         };
         for (var j = 0; j < data[i].length; j++) { 
             var point = []
-            point.push(data[i][j][1])
+            point.push(data[i][j][0])
             point.push(data[i][j][2])
             point.push(data[i][j][3])
-            datax.push(point)
+            if (data[i][j][3])
+                datax.deletes.push(point)
+            else
+                datax.adds.push(point)
         };
     }
 
-    var dom = document.getElementById("left_panel");
-    matrixChart = echarts.init(dom);
-    var myChart = matrixChart;
-    var app = {};
-
-    var COLOR_ALL = [
-        '#FF474A',
-        '#6AF07A'
-      ];
-
-    var option;
     option = {
         tooltip: {
-            position: 'top'
         },
         dataZoom: [
             {
@@ -57,6 +51,13 @@ d3.json(data_file).then(function (DATA) {
             //     hideOverlap: true
             // },
         },
+        legend: [
+            {
+            
+            selectedMode: 'true',
+            // data: graph.categories 
+            }
+        ],
         brush: {
             // removeOnClick = true,
             // throttleType: 'debounce',
@@ -68,22 +69,47 @@ d3.json(data_file).then(function (DATA) {
         },
         series: [
             {
-                name:'matrix',
-                data: datax,
-                type: 'scatter',
-                // large: true,
-                symbolSize: 5,
-                symbol: 'circle',
-                itemStyle: {
-                    color: function (d) {
-                        if (d.data[2] == 1) return '#FF474A';
-                        else return '#6AF07A';
-                    },
-                    opacity: 0.5
-                }
-            }
-        ]
-    };
+                name:"deletes", 
+                data:datax.deletes,
+                type:'scatter',
+                symbolSize:5,
+                symbol:'circle',
+                itemStyle:{
+                    color: '#FF474A',
+                    opacity: 0.3
+                },
+                emphasis:{
+                    itemStyle:{
+                        color:"#f8e71c",
+                        shadowColor: 'rgba(0, 0, 0, 0.8)',
+                        shadowBlur: 10
+                    }
+                },
+                // large:true
+            },
+            {
+                name:"adds", 
+                data:datax.adds,
+                type:'scatter',
+                symbolSize:5,
+                symbol:'circle',
+                itemStyle:{
+                    color: '#6AF07A',
+                    opacity: 0.3
+                },
+                emphasis:{
+                    itemStyle:{
+                        color:"#f8e71c",
+                        shadowColor: 'rgba(0, 0, 0, 0.8)',
+                        shadowBlur: 10
+                    }
+                },
+                // large:true
+            },
+        ],
+        animation:false,
+        hoverLayerThreshold:1000
+    }
 
     if (option && typeof option === 'object') {
         myChart.setOption(option);
