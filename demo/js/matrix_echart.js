@@ -33,6 +33,13 @@ d3.json(data_file).then(function (DATA) {
 
     var option;
     option = {
+        title: {
+            text: '\n编辑行为的时间-文本分布图',
+            top: 'top',
+            left: 'middle',
+            // position: 'middle'
+            textAlign: 'center'
+        },
         tooltip: {
                 trigger: 'item',
                 formatter: function (datas) {
